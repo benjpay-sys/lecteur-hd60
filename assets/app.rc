@@ -1,0 +1,26 @@
+#define VS_VERSION_INFO 1
+1 ICON "icon.ico"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION 0,3,0,0
+PRODUCTVERSION 0,3,0,0
+FILEOS 0x40004
+FILETYPE 0x1
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040C04B0"
+    BEGIN
+      VALUE "FileDescription", "Lecteur HD60"
+      VALUE "ProductName", "Lecteur HD60"
+      VALUE "InternalName", "lecteur-hd60"
+      VALUE "OriginalFilename", "lecteur-hd60.exe"
+      VALUE "FileVersion", "0.3.0"
+      VALUE "ProductVersion", "0.3.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x040C, 1200
+  END
+END

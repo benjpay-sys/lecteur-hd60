@@ -1,0 +1,6 @@
+/target/
+/dist/
+# Binaire compilé : à publier dans les Releases GitHub plutôt que dans le dépôt
+/lecteur-hd60.exe
+*.ppm
+*.raw

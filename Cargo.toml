@@ -3,6 +3,7 @@ name = "lecteur-hd60"
 version = "0.3.0"
 edition = "2021"
 description = "Lecteur faible latence (image + son) pour carte de capture USB, affichage GPU"
+license = "MIT"
 
 [dependencies]
 nokhwa = { version = "0.10", features = ["input-native"] }

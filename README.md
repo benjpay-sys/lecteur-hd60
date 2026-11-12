@@ -134,3 +134,6 @@ bords de couleur « en blocs » sur les petits textes colorés), puis la matrice
 (BT.601 en dessous). Le processeur ne fait plus que copier : moins de charge et moins de latence. Les formats NV12 et MJPEG
 sont encore décodés par le processeur. Les couleurs peuvent paraître très légèrement différentes de l'ancienne version
 (BT.709 au lieu de BT.601).
+
+## Licence
+MIT : voir le fichier `LICENSE`.

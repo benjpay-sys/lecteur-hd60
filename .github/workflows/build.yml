@@ -1,0 +1,48 @@
+name: Compiler l'exe
+
+# À chaque envoi sur main : compile l'exe et le garde 30 jours (onglet Actions > l'exécution > Artifacts).
+# Quand on envoie une étiquette de version (git tag v0.3.0 && git push origin v0.3.0) :
+# l'exe est aussi publié dans l'onglet Releases du dépôt.
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - uses: Swatinem/rust-cache@v2
+
+      # --locked : respecte Cargo.lock (versions figées des bibliothèques).
+      - name: Compiler
+        run: cargo build --release --locked --target x86_64-pc-windows-msvc
+
+      - name: Préparer le fichier
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp target/x86_64-pc-windows-msvc/release/lecteur-hd60.exe dist/lecteur-hd60.exe
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lecteur-hd60-windows-x64
+          path: dist/lecteur-hd60.exe
+          retention-days: 30
+
+      - name: Publier dans les Releases (étiquettes v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/lecteur-hd60.exe
+          generate_release_notes: true

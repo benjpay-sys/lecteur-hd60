@@ -137,3 +137,8 @@ sont encore décodés par le processeur. Les couleurs peuvent paraître très l�
 
 ## Licence
 MIT : voir le fichier `LICENSE`.
+
+## Exe depuis GitHub
+Le dépôt contient un workflow GitHub Actions (`.github\workflows\build.yml`) qui compile l'exe sur Windows à chaque
+envoi sur `main` : il est téléchargeable dans l'onglet **Actions** (artefact `lecteur-hd60-windows-x64`, gardé 30 jours).
+Pour le publier dans **Releases** : `git tag v0.3.0` puis `git push origin v0.3.0`.
